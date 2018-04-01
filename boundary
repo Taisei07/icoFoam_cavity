@@ -15,14 +15,21 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
+3 //patchの数
 (
     fixedWalls
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          60;
-        startFace       780;
+        nFaces          40;
+        startFace       760;
+    }
+    inletAndoutlet //patchの名前
+    {
+        type            patch; //patchのtype
+        inGroups        1(patch);
+        nFaces          40; //patchを構成する面の数
+        startFace       800; //面のリストにおけるpatchが始まる面番号
     }
     frontAndBack
     {
