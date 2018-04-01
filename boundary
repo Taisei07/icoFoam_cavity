@@ -17,13 +17,6 @@ FoamFile
 
 3
 (
-    movingWall
-    {
-        type            wall;
-        inGroups        1(wall);
-        nFaces          20;
-        startFace       760;
-    }
     fixedWalls
     {
         type            wall;
