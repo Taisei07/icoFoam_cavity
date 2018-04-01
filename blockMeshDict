@@ -12,6 +12,9 @@ FoamFile
     class       dictionary;
     object      blockMeshDict;
 }
+/*
+Ver information
+4/1 Ver.1 boudaryを更新*/
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 convertToMeters 0.1;
@@ -39,14 +42,6 @@ edges
 
 boundary
 (
-    movingWall
-    {
-        type wall;
-        faces
-        (
-            (3 7 6 2)
-        );
-    }
     fixedWalls
     {
         type wall;
@@ -55,6 +50,7 @@ boundary
             (0 4 7 3)
             (2 6 5 1)
             (1 5 4 0)
+            (3 7 6 2)
         );
     }
     frontAndBack
