@@ -11,7 +11,7 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      fvSolution;
+    object      fvSolution;//fvSchemeで離散化して得られた代数方程式を解くソルバ
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
