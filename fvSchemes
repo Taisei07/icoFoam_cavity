@@ -11,7 +11,7 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      fvSchemes;//離散化スキームの設定
+    object      fvSchemes;//離散化スキームの設定＝各微分演算子等の項目に対して、それに関する方程式の項について離散化スキームを設定。
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
