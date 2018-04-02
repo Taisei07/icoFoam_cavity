@@ -11,30 +11,30 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      fvSchemes;
+    object      fvSchemes;//離散化スキームの設定
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
+ddtSchemes//時間微分の離散化スキームを指定
 {
     default         Euler;
 }
 
-gradSchemes
+gradSchemes//勾配の離散化スキーム。セルの界面の保管スキーム。
 {
     default         Gauss linear;
     grad(p)         Gauss linear;
 }
 
-divSchemes
+divSchemes//発散の離散化スキーム。”div(phi,U)”は対流項。
 {
     default         none;
     div(phi,U)      Gauss linear;
 }
 
-laplacianSchemes
+laplacianSchemes//ラプラシアンの離散化スキーム。
 {
-    default         Gauss linear orthogonal;
+    default         Gauss linear orthogonal;//orthogonalは「補正なし」という意味。
 }
 
 interpolationSchemes
