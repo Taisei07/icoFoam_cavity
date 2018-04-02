@@ -25,15 +25,18 @@ boundaryField
         type            fixedValue;
         value           uniform(0 0 0)
     }
+
     inlet
     {
         type            fixedValue;
         value           uniform(1 0 0)
     }
+
     outlet
     {
         type            zeroGradient;
     }
+
     frontAndBack
     {
         type            empty;
