@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+dimensions      [0 1 -1 0 0 0 0]; //dimensionsは単位を設定している。[kg m s K mol A Cd]
 
 internalField   uniform (0 0 0);
 
@@ -36,5 +36,6 @@ boundaryField
         type            empty;
     }
 }
+//fixedWalls・inlet・outlet・frontAndBack
 
 // ************************************************************************* //

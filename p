@@ -30,7 +30,7 @@ boundaryField
         type            zeroGradient;
     }
 
-    frontAndBack
+    frontAndBack//inletとoutletが必要？
     {
         type            empty;
     }
