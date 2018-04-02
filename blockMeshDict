@@ -60,12 +60,19 @@ boundary //境界条件の設定。fixedWalls等は境界の名前＝任意に�
             (4 5 6 7)
         );
     }
-    inletAndoutlet
+    inlet
     {
         type patch;
         faces
         (
           (0 4 7 3)
+        )
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
           (2 6 5 1)
         )
     }
