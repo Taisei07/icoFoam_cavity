@@ -15,7 +15,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3 //patchの数
+4 //patchの数
 (
     fixedWalls
     {
@@ -24,7 +24,7 @@ FoamFile
         nFaces          40;
         startFace       760;
     }
-    outlet //patchの名前
+    inlet //patchの名前
     {
         type            patch; //patchのtype
         inGroups        1(patch);
