@@ -15,21 +15,35 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     icoFoam;
+application     icoFoam;//ソルバ名。設定すべし。
 
 startFrom       startTime;
-
+/*startFormとは？
+計算を開始する時刻の設定。
+ex.
+firstTime：存在する時刻データの中で、最も早い時刻から開始。
+startTime：startTimeで指定する時刻から開始。
+latestTIme：存在する時刻の中で、最も遅い時刻から開始。
+*/
 startTime       0;
 
 stopAt          endTime;
+/*stopAtとは？
+計算を止めるタイミングの設定。
+endTime：endTimeで指定した時刻で停止。
+*/
+endTime         1000;
 
-endTime         0.5;
-
-deltaT          0.005;
+deltaT          0.5;//時刻刻み幅の指定。
 
 writeControl    timeStep;
-
-writeInterval   20;
+/*writeControlとは？
+計算結果の出力の制御方法。
+timeStep：時間ステップ何回かごとに出力する
+runTime：ある時間ごとに出力
+etc
+*/
+writeInterval   1;
 
 purgeWrite      0;
 
