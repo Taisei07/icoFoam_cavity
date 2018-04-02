@@ -10,32 +10,51 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volVectorField;
-    object      U;
+    object      U;//速度の境界条件を設定
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0]; //dimensionsは単位を設定している。[kg m s K mol A Cd]
+dimensions      [0 1 -1 0 0 0 0]; //dimensionsは単位を設定している。[kg m s K mol A Cd]。今回は、m/s。
 
-internalField   uniform (0 0 0);
+internalField   uniform (0 0 0); //field内部の値を設定している。0ディレクトリ（今回）の場合は初期条件。
 
 boundaryField
 {
-    movingWall
-    {
-        type            fixedValue;
-        value           uniform (1 0 0);
-    }
-
     fixedWalls
     {
-        type            noSlip;
+        type            fixedValue;
+        value           uniform(0 0 0)
     }
-
+    inlet
+    {
+        type            fixedValue;
+        value           uniform(1 0 0)
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
     frontAndBack
     {
         type            empty;
     }
 }
-//fixedWalls・inlet・outlet・frontAndBack
+//新しく作った境界条件（fixedWalls・inlet・outlet・frontAndBack）
+/*前のやつ
+movingWall
+{
+    type            fixedValue;
+    value           uniform (1 0 0);
+}
+
+fixedWalls
+{
+    type            noSlip;
+}
+
+frontAndBack
+{
+    type            empty;
+}*/
 
 // ************************************************************************* //
