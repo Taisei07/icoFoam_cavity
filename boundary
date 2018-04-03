@@ -20,21 +20,18 @@ FoamFile
     fixedWalls
     {
         type            wall;
-        inGroups        1(wall);
         nFaces          40;
         startFace       760;
     }
     inlet //patchの名前
     {
         type            patch; //patchのtype
-        inGroups        1(patch);
         nFaces          20; //patchを構成する面の数
         startFace       800; //面のリストにおけるpatchが始まる面番号
     }
     outlet
     {
         type            patch;
-        inGroups        1(patch);
         nFaces          20;
         startFace       820;
     }
