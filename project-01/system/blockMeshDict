@@ -19,7 +19,7 @@ Ver information
 
 convertToMeters  1;
 
-vertices　//座標によって点を定義している。上から0,1,2という順番で参照される。
+vertices//座標によって点を定義している。上から0,1,2という順番で参照される。
 (
     (0 0 0)
     (1 0 0)
@@ -40,7 +40,7 @@ edges
 (
 );
 
-boundary //境界条件の設定。fixedWalls等は境界の名前＝任意に設定可能。
+boundary//境界条件の設定。fixedWalls等は境界の名前＝任意に設定可能。
 (
     fixedWalls
     {

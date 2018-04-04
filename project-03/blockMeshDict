@@ -14,9 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-convertToMeters 0.1;
+convertToMeters 1;
 
-vertices
+vertices//モデルよりも少し大きめに作る
 (
     (0 0 0)
     (1 0 0)
