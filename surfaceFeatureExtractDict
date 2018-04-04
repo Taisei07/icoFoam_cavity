@@ -13,7 +13,15 @@ FoamFile
     object      surfaceFeatureExtractDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+cavity_flow-mm.stl
+{
+    extractionMethod  extractFromSurface;
 
+    extractFromSurfaceCoeffs
+    {
+        includedAngle 150;
+    }
 
-
+    writeObj            yes;
+}
 // ************************************************************************* //
