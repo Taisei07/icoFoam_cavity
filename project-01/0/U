@@ -14,9 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0]; //dimensionsは単位を設定している。[kg m s K mol A Cd]。今回は、m/s。
+dimensions      [0 1 -1 0 0 0 0];//dimensionsは単位を設定している。[kg m s K mol A Cd]。今回は、m/s。
 
-internalField   uniform (0 0 0); //field内部の値を設定している。0ディレクトリ（今回）の場合は初期条件。
+internalField   uniform (0 0 0);//field内部の値を設定している。0ディレクトリ（今回）の場合は初期条件。
 
 boundaryField
 {
