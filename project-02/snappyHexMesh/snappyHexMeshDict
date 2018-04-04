@@ -18,7 +18,7 @@ FoamFile
 // Which of the steps to run
 castellatedMesh true;
 snap            true;
-addLayers       false;
+addLayers       true;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -29,18 +29,10 @@ addLayers       false;
 // - to 'snap' the mesh boundary to the surface
 geometry
 {
-    flange
+    cavity_flow-mm
     {
         type triSurfaceMesh;
-        file "flange.stl";
-    }
-
-    //- Refine a bit extra around the small centre hole
-    refineHole
-    {
-        type searchableSphere;
-        centre (0 0 -0.012);
-        radius 0.003;
+        file "cavity_flow-mm.stl";
     }
 };
 
@@ -86,7 +78,7 @@ castellatedMeshControls
     features
     (
         {
-            file "flange.extendedFeatureEdgeMesh";
+            file "cavity_flow-mm.eMesh";
             level 0;
         }
     );
@@ -104,7 +96,7 @@ castellatedMeshControls
 
     refinementSurfaces
     {
-        flange
+        cavity_flow-mm
         {
             // Surface-wise min and max refinement level
             level (2 2);
@@ -129,11 +121,6 @@ castellatedMeshControls
 
     refinementRegions
     {
-        refineHole
-        {
-            mode inside;
-            levels ((1E15 3));
-        }
     }
 
 
@@ -189,7 +176,7 @@ snapControls
 
         //- Detect features between multiple surfaces
         //  (only for explicitFeatureSnap, default = false)
-        multiRegionFeatureSnap true;
+        multiRegionFeatureSnap false;
 }
 
 
