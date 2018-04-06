@@ -1,0 +1,84 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;//fvSchemeで離散化して得られた代数方程式を解くソルバ。
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers//今回は、"PCG/PBiCG"を採用。
+{
+    p
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-06;
+        relTol          0.01;
+    }
+    /*【　toleranceとrelTolに関して】
+    ・toleranceとrelTolは共通
+    ・計算の打ち切り条件を指定している
+    ・残渣がtoleranceよりも小さくなるか、初期残渣に対する比がrelTolよりも小さくなった時に計算が止まる。
+    */
+
+    U
+    {
+        solver          PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-05;
+        relTol          0.1;
+    }
+
+    "(k|epsilon|omega|R)"
+    {
+        solver          PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-05;
+        relTol          0.1;
+    }
+}
+SIMPLE//今回は、"SIMPLE法"を採用。
+{
+    nNonOrthogonalCorrectors 0;//非直行補正のループ回数。
+    pRefPoint       (0 0 0);
+    pRefValue       0;
+    residualControl
+    {
+        p           1e-3;
+        U           1e-3;
+        "(k|epsilon|omega|R)"   1e-3;
+    }
+}
+relaxationFactors//緩和係数設定。収束が遅いor計算が発散する場合は緩和係数を小さくする。
+{
+    fields
+    {
+        p           0.3;
+    }
+    equations
+    {
+        U           0.7;
+        "(k|epsilon|omega|R)"   0.7;
+    }
+}
+/*以前のversion 速度ー圧力連成手法の設定
+PISO
+{
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+}
+*/
+
+
+// ************************************************************************* //

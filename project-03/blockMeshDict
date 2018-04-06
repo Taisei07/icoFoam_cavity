@@ -12,11 +12,14 @@ FoamFile
     class       dictionary;
     object      blockMeshDict;
 }
+/*
+Ver information
+4/1 Ver.1 boudaryを更新*/
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-convertToMeters 1;
+convertToMeters  1;
 
-vertices//モデルよりも少し大きめに作る
+vertices//座標によって点を定義している。上から0,1,2という順番で参照される。
 (
     (0 0 0)
     (1 0 0)
@@ -37,24 +40,15 @@ edges
 (
 );
 
-boundary
+boundary//境界条件の設定。fixedWalls等は境界の名前＝任意に設定可能。
 (
-    movingWall
-    {
-        type wall;
-        faces
-        (
-            (3 7 6 2)
-        );
-    }
     fixedWalls
     {
         type wall;
         faces
         (
-            (0 4 7 3)
-            (2 6 5 1)
             (1 5 4 0)
+            (3 7 6 2)
         );
     }
     frontAndBack
@@ -64,6 +58,22 @@ boundary
         (
             (0 3 2 1)
             (4 5 6 7)
+        );
+    }
+    inlet
+    {
+        type patch;
+        faces
+        (
+            (0 4 7 3)
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
+            (2 6 5 1)
         );
     }
 );
