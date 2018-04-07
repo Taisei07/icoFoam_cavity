@@ -41,7 +41,7 @@ boundary
 (
     inlet
     {
-        type wall;
+        type patch;
         faces
         (
             (3 7 6 2)
@@ -54,6 +54,13 @@ boundary
         (
             (0 4 7 3)
             (2 6 5 1)
+        );
+    }
+    outlet
+    {
+        type patch;
+        faces
+        (
             (1 5 4 0)
         );
     }

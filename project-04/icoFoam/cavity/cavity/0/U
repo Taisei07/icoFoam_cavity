@@ -23,12 +23,17 @@ boundaryField
     inlet
     {
         type            fixedValue;
-        value           uniform (1 0 0);
+        value           uniform (0 -1 0);
     }
 
     fixedWalls
     {
         type            noSlip;
+    }
+
+    outlet
+    {
+        type            zeroGradient
     }
 
     frontAndBack

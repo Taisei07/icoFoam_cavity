@@ -15,12 +15,11 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
+4
 (
     inlet
     {
-        type            wall;
-        inGroups        1(wall);
+        type            patch;
         nFaces          20;
         startFace       760;
     }
@@ -28,8 +27,14 @@ FoamFile
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          60;
-        startFace       780;
+        nFaces          40;
+        startFace       820;
+    }
+    outlet
+    {
+        type            wall;
+        nFaces          20;
+        startFace       820;
     }
     frontAndBack
     {
