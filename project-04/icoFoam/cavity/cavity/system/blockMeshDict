@@ -39,7 +39,7 @@ edges
 
 boundary
 (
-    movingWall
+    inlet
     {
         type wall;
         faces
