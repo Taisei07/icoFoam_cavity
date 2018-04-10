@@ -28,7 +28,7 @@ boundaryField
 
     fixedWalls
     {
-        type            noSlip;
+        type            zeroGradient;
     }
 
     outlet
