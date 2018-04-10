@@ -17,7 +17,7 @@ FoamFile
 
 4
 (
-    inlet
+    outlet
     {
         type            patch;
         nFaces          20;
@@ -30,9 +30,9 @@ FoamFile
         nFaces          40;
         startFace       820;
     }
-    outlet
+    inlet
     {
-        type            wall;
+        type            patch;
         nFaces          20;
         startFace       820;
     }
