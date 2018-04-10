@@ -32,7 +32,8 @@ boundaryField
 
     outlet
     {
-        type            zeroGradient;
+        type            fixedValue;
+        value           0
     }
 
     frontAndBack
