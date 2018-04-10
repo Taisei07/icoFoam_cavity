@@ -33,7 +33,7 @@ boundaryField
     outlet
     {
         type            fixedValue;
-        value           0
+        value           uniform 0;
     }
 
     frontAndBack
