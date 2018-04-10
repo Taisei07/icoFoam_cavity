@@ -23,7 +23,7 @@ boundaryField
     inlet
     {
         type            surfaceNormalFixedValue;
-        refValue           uniform 10;
+        refValue           uniform -10;
     }
 
     fixedWalls
