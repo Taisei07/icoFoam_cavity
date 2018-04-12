@@ -28,7 +28,7 @@ FoamFile
         type            wall;
         inGroups        1(wall);
         nFaces          40;
-        startFace       820;
+        startFace       780;
     }
     inlet
     {
